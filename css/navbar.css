@@ -1,0 +1,152 @@
+body, ul{
+    margin: 0;
+    padding: 0;
+}
+a{
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a:hover{
+    background-color: rgb(83, 124, 21);
+    transition: .5s;
+}
+#lagi{
+    width: 100px;
+}
+#header{
+    box-sizing: border-box;
+    height: 50px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(29, 28, 28);
+}
+#menu{
+    display: flex;
+    list-style: none;
+}
+#menu a{
+    display: block;
+    padding: 1rem;
+}
+#btn{
+    display: none;
+}
+
+
+/*submenu*/
+#submenu{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(53, 53, 53);
+}
+
+#menu li #submenu a:hover{
+    background-color: rgb(83, 124, 21);
+
+}
+#menu li #submenu li{
+    padding-right: 1.04rem;
+    padding-left: 1.04rem;
+}
+
+#submenu{
+    display: block;
+    position: absolute;
+    line-height: 10px;
+    transition: 1s;
+    height: 0px;
+    visibility: hidden;
+    overflow-y: hidden;
+}
+#ling.active #submenu{
+    height: 13.5rem;
+    visibility: visible;
+    overflow-y: auto;
+    transition: 1s;
+}
+@media (max-width:600px) { /*quando a tela for menor que 600px ele fará as chaves*/
+    #menu{
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 50px;
+        right: 0;
+        background-color: rgb(37, 37, 37);
+        transition: 1s;
+        z-index: 1000;
+        height: 0px;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+    #nav.active #menu{
+        height: calc(100vh - 50px);
+        visibility: visible;
+        overflow-y: auto;
+        transition: 1s;
+    }
+    #menu a{
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid rgb(53, 80, 13);
+    }
+    #menu a:hover{
+        background-color: rgb(83, 124, 21);
+    }
+    #btn{
+        display: flex;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: 0.5rem;
+    }
+    #hamburguer{
+        border-top: 2px solid lightgray;
+        width: 20px;
+        transition: .5s;
+    }
+    #hamburguer::after, #hamburguer::before{
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: lightgray;
+        margin-top: 5px;
+        transition: .5s;
+        position: relative;
+    }
+    #nav.active #hamburguer::before{
+        display: none;
+    }
+    #nav.active #hamburguer{
+        transform: rotate(45deg);
+    }
+    #nav.active #hamburguer::after{
+        transform: rotate(-95deg);
+        top: -7px
+    }
+
+    #submenu{
+        display: block;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        padding: 0;
+        background-color: rgb(37, 37, 37);
+        transition: 1s;
+        height: 0px;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+    #ling.active #submenu{
+        height: 60vh;
+        visibility: visible;
+        overflow-y: auto;
+        transition: 1s;
+    }
+}
